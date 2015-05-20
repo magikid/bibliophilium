@@ -1,0 +1,13 @@
+development: &default
+  adapter: postgresql
+  database: bibliophilium_development
+  encoding: utf8
+  host: 127.0.0.1
+  min_messages: warning
+  pool: 2
+  timeout: 5000
+  user: chrisj
+
+test:
+  <<: *default
+  database: bibliophilium_test

@@ -24,6 +24,7 @@ gem "simple_form"
 gem "title"
 gem "uglifier"
 gem "unicorn"
+gem "grape"
 
 group :development do
   gem "spring"

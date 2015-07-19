@@ -1,6 +1,7 @@
 class Biblio::V1 < Grape::API
   format :json
   default_format :json
+  formatter :json, Grape::Formatter::ActiveModelSerializers
   prefix :api
   version 'v1', using: :path
 

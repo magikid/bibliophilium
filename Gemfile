@@ -25,6 +25,7 @@ gem "title"
 gem "uglifier"
 gem "unicorn"
 gem "grape"
+gem "grape-active_model_serializers"
 
 group :development do
   gem "spring"

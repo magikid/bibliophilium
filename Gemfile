@@ -27,6 +27,10 @@ gem "unicorn"
 gem "grape"
 gem "grape-active_model_serializers"
 
+# Authentication
+gem "omniauth"
+gem "omniauth-github"
+
 group :development do
   gem "spring"
   gem "spring-commands-rspec"

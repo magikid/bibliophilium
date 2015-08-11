@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150719131421) do
+ActiveRecord::Schema.define(version: 20150811001256) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,14 @@ ActiveRecord::Schema.define(version: 20150719131421) do
   end
 
   add_index "books", ["library_id"], name: "index_books_on_library_id", using: :btree
+
+  create_table "books_libraries", id: false, force: :cascade do |t|
+    t.integer "book_id",    null: false
+    t.integer "library_id", null: false
+  end
+
+  add_index "books_libraries", ["book_id", "library_id"], name: "index_books_libraries_on_book_id_and_library_id", using: :btree
+  add_index "books_libraries", ["library_id", "book_id"], name: "index_books_libraries_on_library_id_and_book_id", using: :btree
 
   create_table "delayed_jobs", force: :cascade do |t|
     t.integer  "priority",   default: 0, null: false
@@ -45,6 +53,15 @@ ActiveRecord::Schema.define(version: 20150719131421) do
 
   create_table "libraries", force: :cascade do |t|
     t.string   "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "name"
+    t.string   "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
